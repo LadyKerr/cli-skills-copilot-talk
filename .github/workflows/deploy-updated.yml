@@ -1,6 +1,10 @@
-name: Deploy pages
+name: Deploy Deck to pages
 
-on:  push
+on:
+    workflow_dispatch: {}
+    push:
+      branches:
+        - main
 
 jobs:
   build:
