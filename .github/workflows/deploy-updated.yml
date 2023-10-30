@@ -1,10 +1,6 @@
 name: Deploy Deck to pages
 
-on:
-    workflow_dispatch: {}
-    push:
-      branches:
-        - main
+on: push
 
 jobs:
   build:
@@ -24,7 +20,7 @@ jobs:
           npm install
       - name: Build slidev deck
         run: |
-          npm build --base /${{ github.event.repository.name }}/
+          npm run build --base /${{ github.event.repository.name }}/
           cp dist/index.html dist/404.html
       - name: Deploy to pages
         uses: crazy-max/ghaction-github-pages@v2.3.0
