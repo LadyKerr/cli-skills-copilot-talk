@@ -14,8 +14,12 @@ jobs:
         run:  npm i -g @slidev/cli
       - name: Install for PDF  
         run: npm i -D playwright-chromium
-      - name: Build
+      - name: Build Slidev Deck
         run: slidev build --base /cli-skills-copilot-talk/
+      - name: Build slidev deck + create dist dir
+        run: |
+          npm run build
+          cp dist/index.html dist/404.html
       - name: Deploy pages
         uses: crazy-max/ghaction-github-pages@v2
         with:
