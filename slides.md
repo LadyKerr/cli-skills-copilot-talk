@@ -1,437 +1,483 @@
 ---
-theme: seriph
-background: https://source.unsplash.com/collection/94734566/1920x1080
-class: text-center
-highlighter: shiki
-lineNumbers: false
-info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
-drawings:
-  persist: false
-transition: slide-left
-title: Welcome to Slidev
-mdc: true
+theme: mokkapps
+title: GitHub Copilot for CLI
+favicon: ""
+layout: cover
+lineNumbers: true
 ---
 
-# Welcome to Slidev
-
-Presentation slides for developers
-
-<div class="pt-12">
-  <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    Press Space for next page <carbon:arrow-right class="inline"/>
-  </span>
-</div>
-
-<div class="abs-br m-6 flex gap-2">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub" title="Open in GitHub"
-    class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon-logo-github />
-  </a>
-</div>
-
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
+# Take your command line skills to the next level with
+# GitHub Copilot in the CLI 🚀
 
 ---
-transition: fade-out
+layout: about-me
 ---
 
-# What is Slidev?
-
-Slidev is a slides maker and presenter designed for developers, consist of the following features
-
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - theme can be shared and used with npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embedding Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export into PDF, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - anything possible on a webpage
-
-<br>
-<br>
-
-Read more about [Why Slidev?](https://sli.dev/guide/why)
-
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/guide/syntax#embedded-styles
--->
-
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
-
-<!--
-Here is another comment.
--->
-
 ---
-layout: default
+layout: intro
+image: 'https://github.com/community/community/assets/47188731/1ad0789f-3c29-446c-b071-7c721cd8734c'
 ---
 
-# Table of contents
+# Agenda
 
-```html
-<Toc minDepth="1" maxDepth="1"></Toc>
+- What is Github Copilot in the CLI?
+- Installation, syntax and usage
+- Live demos in the terminal
+- Q&A
+
+💡 This talk is **mostly demos** in the terminal to show you how to use GitHub Copilot for CLI.
+
+---
+layout: intro
+---
+
+# What is GitHub Copilot in the CLI?
+
+GitHub Copilot for CLI provides a chat-like interface in the terminal that allows you to ask questions about the command line.
+
+<!-- You can ask GitHub Copilot to provide either command suggestions or explanations of given commands. -->
+
+<img src="https://github.com/community/community/assets/47188731/1ad0789f-3c29-446c-b071-7c721cd8734c" alt="ADD GIF OF CLI" width="600"/>
+
+---
+layout: intro
+---
+
+# Installation 🛠️
+you must have an active GitHub Copilot subscription to use coplot for cli
+
+- install GitHub CLI with your package manager
+- authenticate in OAuth browser window
+- install copilot cli extension
+
+<br />
+
+```bash
+brew install gh
+gh auth login
+gh extension install github/gh-copilot
 ```
 
-<Toc maxDepth="1"></Toc>
-
 ---
-transition: slide-up
-level: 2
+layout: intro
 ---
 
-# Navigation
+# How do you use it? 🤔
 
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/navigation.html)
+To begin, run the help command `gh copilot --help`:
 
-## Keyboard Shortcuts
+```bash
+gh copilot
 
-|     |     |
-| --- | --- |
-| <kbd>right</kbd> / <kbd>space</kbd>| next animation or slide |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd> | previous slide |
-| <kbd>down</kbd> | next slide |
+Your AI command line copilot.
 
-<!-- https://sli.dev/guide/animations.html#click-animations -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-  alt=""
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
+Usage:
+copilot [command]
+
+Available Commands:
+
+explain Explain a command
+suggest Suggest a command
+
+Flags:
+
+-h, --help help for copilot
+-v, --version version for copilot
+
+Use "copilot [command] --help" for more information about a command.
+
+```
+
+---
+layout: intro
+image: 'https://source.unsplash.com/collection/94734566/1920x1080'
+---
+
+# Copilot CLI Commands 🤖
+there are two commands you can use with the gh copilot cli extension:
+
+```bash
+gh copilot explain
+gh copilot suggest
+```
+
+---
+layout: intro
+image: 'https://source.unsplash.com/collection/94734566/1920x1080'
+---
+
+# Explain Command 🤖
+
+this command is used to explain any shell, git or gh cli command:
+
+```bash
+gh copilot explain [what you want to know more about]
+```
+
+you can also run:
+
+```bash
+gh copilot explain
+```
+
+and follow the on screen prompts
+
+---
+layout: intro
+image: 'https://source.unsplash.com/collection/94734566/1920x1080'
+---
+
+# Suggest Command 🤖
+
+this command is used to get suggestions for any shell, git or gh cli inquiry:
+
+```bash
+gh copilot suggest [what you want to do]
+```
+
+you can also run:
+```bash
+gh copilot suggest
+```
+
+and follow the on screen prompts
+
+---
+layout: intro
+class: "text-center"
+---
+
+# 💡 Tip: Create an alias
+
+create your own alias for **gh copilot suggest/explain**
+
+I'm using zsh so I ran:
+
+```bash
+echo 'alias ghs="gh copilot suggest"' >> ~/.zshrc 
+&& echo 'alias ghe="gh copilot explain"' >> ~/.zshrc 
+&& source ~/.zshrc
+```
+
+---
+layout: full
+class: "text-center"
+---
+
+# Prompting Copilot to get the right output 🤖
+
+**Goal:** create a new react project <br/>
+**Problem:** I don't remember how to do this <br/>
+**Solution:** Ask Copilot CLI
+
+```bash
+gh copilot suggest create a new react project named techy-trends
+```
+<!-- live terminal example here -->
+
+<!-- show this AFTER the terminal demo - figure out on slidev -->
+communicating effectively with copilot cli is essential to your success
+
+---
+layout: full
+class: "text-center"
+---
+
+# Push a local folder to a new GitHub repo 🗂️
+We can create a GitHub repo with the cli 
+
+```bash
+gh copilot suggest push a local folder to a github repo
+```
+
+---
+layout: full
+class: "text-center"
+---
+
+# Explain a command ⚠️
+We can ask copilot cli to explain commands we copied from the internet
+
+```bash
+gh copilot explain 'git lfs migrate import --everything --include="*.gz,*.png,*.jar"'
+```
+<!-- live terminal example here -->
+
+<!-- show after the terminal demo -->
+NEVER RUN THIS ONE YOUR MACHINE
+
+---
+
+# Explain a dangerous command ⚠️
+We can ask copilot cli to explain commands we copied fron the internet
+
+```bash
+gh copilot explain chmod -r 777 /
+```
+<!-- live terminal example here -->
+
+<!-- show after the terminal demo -->
+NEVER RUN THIS ONE YOUR MACHINE
+
+---
+layout: full
+class: "text-center"
+---
+
+# Remove a file from a commit msg and <br/> keep the original commit msg 🧐
+ever commit a file you didn't mean to add?
+<!-- 
+TODO: 
+create a new folder and initialize git: `mkdir demo && cd demo && git init`
+create two new files: `touch demo.md && touch mistake.md`
+commit both files: `git add . && git commit -m "initial commit"`
+
+add content to both files:
+echo "I like gh copilot cli" > demo.md
+echo "I'm at gh universe '23!" > mistake.md
+
+commit both files: `git add . && git commit -m "add content to both files"`
+
+Now ask copilot to suggest how remove the file and keep the commit
+Ask to explain commands
+run commands
+show changes in vscode or just run git log and git status
+
+-->
+
+```bash
+gh copilot suggest remove <filename> from last commit keeping commit message`
+
+```
+<!-- live terminal example here -->
+
+<!-- show after the terminal demo -->
+text if any to show
+
+---
+layout: full
+class: "text-center"
+---
+
+# Retract a commit that's already been pushed
+subtitle
+
+```bash
+github copilot suggest retract an already pushed commit
+```
+<!-- live terminal example here -->
+
+<!-- show after the terminal demo -->
+text if any to show
+
+<!-- 
+So I can find the commit hash by running `git log` copy the hash and run
+
+git revert <commit hash>
+ -->
+---
+layout: section
+---
+
+# Top 10 Questions about using the terminal
+10 most asked questions about using the terminal answered by _gh_ copilot cli
+
+---
+layout: full
+class: "text-center"
+---
+
+#  ❓delete a git branch locally and remotely ❓
+
+```bash
+
+```
+<!-- live terminal example here -->
+
+<!-- show after the terminal demo -->
+text if any to show
+
+---
+layout: full
+class: "text-center"
+---
+
+# ❓kill processes with open files that have been deleted ❓
+subtitle
+
+```bash
+
+```
+<!-- live terminal example here -->
+
+<!-- show after the terminal demo -->
+text if any to show
+
+---
+layout: full
+class: "text-center"
+---
+
+# ❓ modify existing, unpushed commit messages ❓
+subtitle
+
+```bash
+
+```
+<!-- live terminal example here -->
+
+<!-- show after the terminal demo -->
+text if any to show
+
+---
+layout: full
+class: "text-center"
+---
+
+# ❓ check if a directory exists in shell script ❓
+subtitle
+
+```bash
+
+```
+<!-- live terminal example here -->
+
+<!-- show after the terminal demo -->
+text if any to show
+
+---
+layout: full
+class: "text-center"
+---
+
+# ❓ rename a local git branch ❓
+subtitle
+
+```bash
+
+```
+<!-- live terminal example here -->
+
+<!-- show after the terminal demo -->
+text if any to show
+
+---
+layout: full
+class: "text-center"
+---
+
+# ❓ see hidden files in current directory ❓
+subtitle
+
+```bash
+
+```
+<!-- live terminal example here -->
+
+<!-- show after the terminal demo -->
+text if any to show
+
+---
+layout: full
+class: "text-center"
+---
+
+# ❓ undo the most recent local git commit ❓
+subtitle
+
+```bash
+
+```
+<!-- live terminal example here -->
+
+<!-- show after the terminal demo -->
+text if any to show
+
+---
+layout: full
+class: "text-center"
+---
+
+# ❓ make git forget about a file that was tracked, but is now in .gitignore ❓
+subtitle
+
+```bash
+
+```
+<!-- live terminal example here -->
+
+<!-- show after the terminal demo -->
+text if any to show
+
+---
+layout: full
+class: "text-center"
+---
+
+# ❓ check if a directory exists in shell script ❓
+subtitle
+
+```bash
+
+```
+<!-- live terminal example here -->
+
+<!-- show after the terminal demo -->
+text if any to show
+
+---
+layout: full
+class: "text-center"
+---
+
+# ❓ exit vim ❓
+subtitle
+
+```bash
+
+```
+<!-- live terminal example here -->
+
+<!-- show after the terminal demo -->
+text if any to show
+
+---
+layout: full
+class: "text-center"
+---
+
+# ❓ give me a suggestion ❓
+What would you like me to ask?
+
+```bash
+gh copilot suggest/explain ??
+```
+<!-- live terminal example here -->
 
 ---
 layout: image-right
-image: https://source.unsplash.com/collection/94734566/1920x1080
+image: public reporepo
 ---
 
-# Code
+# ✨ Try it for yourself! ✨
 
-Use code snippets and get the highlighting directly![^1]
+Copilot for CLI is in public beta 
 
-```ts {all|2|1-6|9|all}
-interface User {
-  id: number
-  firstName: string
-  lastName: string
-  role: string
-}
-
-function updateUser(id: number, update: User) {
-  const user = getUser(id)
-  const newUser = { ...user, ...update }
-  saveUser(id, newUser)
-}
+```bash
+gh extension install github/gh-copilot
 ```
+QR CODE
 
-<arrow v-click="[3, 4]" x1="400" y1="420" x2="230" y2="330" color="#564" width="3" arrowSize="1" />
-
-[^1]: [Learn More](https://sli.dev/guide/syntax.html#line-highlighting)
-
-<style>
-.footnotes-sep {
-  @apply mt-20 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
+Add repo image link or discussion board for cli
 
 ---
-
-# Components
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-You can use Vue components directly inside your slides.
-
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
-```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
-</div>
-
-<!--
-Presenter note with **bold**, *italic*, and ~~striked~~ text.
-
-Also, HTML elements are valid:
-<div class="flex w-full">
-  <span style="flex-grow: 1;">Left content</span>
-  <span>Right content</span>
-</div>
--->
-
-
----
-class: px-20
+layout: outro
 ---
 
-# Themes
+# Thanks! ✨
 
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
+SCAN FOR SLIDES:
 
-<div grid="~ cols-2 gap-2" m="-t-2">
+QR CODE to repo with slides
 
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true" alt="">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true" alt="">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/themes/use.html) and
-check out the [Awesome Themes Gallery](https://sli.dev/themes/gallery.html).
-
----
-preload: false
----
-
-# Animations
-
-Animations are powered by [@vueuse/motion](https://motion.vueuse.org/).
-
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }">
-  Slidev
-</div>
-```
-
-<div class="w-60 relative mt-6">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-square.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-circle.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-triangle.png"
-      alt=""
-    />
-  </div>
-
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
-  </div>
-</div>
-
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
-}
-</script>
-
-<div
-  v-motion
-  :initial="{ x:35, y: 40, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-[Learn More](https://sli.dev/guide/animations.html#motion)
-
-</div>
-
----
-
-# LaTeX
-
-LaTeX is supported out-of-box powered by [KaTeX](https://katex.org/).
-
-<br>
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-$$ {1|3|all}
-\begin{array}{c}
-
-\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &
-= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
-
-\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
-
-\nabla \cdot \vec{\mathbf{B}} & = 0
-
-\end{array}
-$$
-
-<br>
-
-[Learn more](https://sli.dev/guide/syntax#latex)
-
----
-
-# Diagrams
-
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
-
-<div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
-
-```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectivness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-```
-
-</div>
-
-[Learn More](https://sli.dev/guide/syntax.html#diagrams)
-
----
-src: ./pages/multiple-entries.md
-hide: false
----
-
----
-layout: center
-class: text-center
----
-
-# Learn More
-
-[Documentations](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/showcases.html)
+[Add link for thhose who have slide]()
