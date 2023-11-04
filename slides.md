@@ -14,41 +14,68 @@ layout: about-me
 ---
 
 ---
-layout: intro
+layout: image-right
 image: 'https://github.com/community/community/assets/47188731/1ad0789f-3c29-446c-b071-7c721cd8734c'
 ---
 
-# Agenda
+# What we'll cover:
 
 - What is Github Copilot in the CLI?
-- Installation, syntax and usage
-- Live demos in the terminal
-- Q&A
+- How to install and use it? 🤔
+- My Hot Tip 💡 for using Copilot in the CLI 
+- Lots and lots of live demos 💃🏼
+- Give me a suggestion! 👀
+- Q&A + Wrapup ❓
 
-💡 This talk is **mostly demos** in the terminal to show you how to use GitHub Copilot for CLI.
-
----
-layout: intro
----
-
-# What is GitHub Copilot in the CLI?
-
-GitHub Copilot for CLI provides a chat-like interface in the terminal that allows you to ask questions about the command line.
-
-<!-- You can ask GitHub Copilot to provide either command suggestions or explanations of given commands. -->
-
-<img src="https://github.com/community/community/assets/47188731/1ad0789f-3c29-446c-b071-7c721cd8734c" alt="ADD GIF OF CLI" width="600"/>
+<!--
+This talk is mostly demos in the terminal to show you how to use GitHub Copilot in the CLI. 
+-->
 
 ---
 layout: intro
 ---
 
-# Installation 🛠️
-you must have an active GitHub Copilot subscription to use coplot for cli
+# What is Copilot in the CLI?
 
-- install GitHub CLI with your package manager
-- authenticate in OAuth browser window
-- install copilot cli extension
+GitHub Copilot in the CLI provides a chat-like interface in the terminal that allows you to ask questions about the command line.
+
+<img src="https://github.com/LadyKerr/cli-skills-copilot/assets/47188731/ef7a4fca-72bf-41aa-a2b1-4617b31abbe7" alt="github copilot in the cli" width="600" />
+
+<!--
+You can ask GitHub Copilot to provide either command suggestions or explanations of given commands.
+
+hink of it like copilot chat in your terminal, there to helo you with commands specific with working in the cli.
+It is only here to answer questions related to using git, the github cli or answer general shell command questions.
+
+If you ask it a programming question, it is not scoped to respond to those - copilot in the cli is here to helop you wuth your terminal needs. 
+
+-->
+
+---
+layout: intro
+---
+
+# What does it do?
+
+GitHub Copilot in the CLi is designed to answer questions about:
+- general shell commands
+- git commands
+- _gh_ cli commands
+
+<br />
+
+<img src="https://github.com/LadyKerr/cli-skills-copilot/assets/47188731/e9546211-7370-4e1d-9090-1175ec55379b" alt="github copilot in the cli" width="600" />
+
+---
+layout: intro
+---
+
+# Getting Started: Installation 🛠️
+💡 `You must have an active copilot subscription`
+
+❶ install GitHub CLI with your package manager <br/>
+❷ authenticate in OAuth browser window <br/>
+❸ install gh-copilot cli extension
 
 <br />
 
@@ -57,6 +84,38 @@ brew install gh
 gh auth login
 gh extension install github/gh-copilot
 ```
+
+<!--
+to install copilot in the cli, you must first install the gh cli using your preferred package manager. Since I have mac, I use homebrew so I ran brew install gh.
+
+Once that's done, you can authenticate yourself and then install the extension by running gh extension install github/gh-copilot
+
+Once that's done, the next thing I want you to do is to create an alias and this brings me to my hot tip of the day
+
+-->
+---
+layout: intro
+---
+
+# 💡 Tip: Create an alias
+
+create your own alias for **gh copilot suggest** && **gh copilot explain**
+
+I'm using zsh so I ran:
+
+```bash
+alias copilot='gh copilot' ; echo 'alias copilot="gh copilot"' >> ~/.zshrc && source ~/.zshrc
+alias gcs='gh copilot suggest' ; echo 'alias gcs="gh copilot suggest"' >> ~/.zshrc && source ~/.zshrc
+alias gce='gh copilot explain' ; echo "alias gce='gh copilot explain'" >> ~/.zshrc && source ~/.zshrc
+```
+<!-- 
+Create an alias! This will make interfacing with the cli a lot smoother because it saves you some keystrokes and you can get help faster.
+
+Since Im using zsh, I ran the following commands for gh copilot, gh copilot suggest and gh copilot explain.
+
+But speaking of aliases, what are the commands that we can to interact with copilot in the cli?
+Let's keep going -->
+
 
 ---
 layout: intro
@@ -72,34 +131,44 @@ gh copilot
 Your AI command line copilot.
 
 Usage:
-copilot [command]
+  copilot [command]
 
 Available Commands:
-
-explain Explain a command
-suggest Suggest a command
+  config      Configure options
+  explain     Explain a command
+  suggest     Suggest a command
 
 Flags:
-
--h, --help help for copilot
--v, --version version for copilot
+  -h, --help      help for copilot
+  -v, --version   version for copilot
 
 Use "copilot [command] --help" for more information about a command.
 
 ```
+<!--
+To get started, I recommend running the help command, gh copilot --help this is the response you will get you'll see a list of available commands, flags and info on how to get with specific commands. 
+
+Let's take a further look at the available commands
+-->
 
 ---
 layout: intro
-image: 'https://source.unsplash.com/collection/94734566/1920x1080'
 ---
 
 # Copilot CLI Commands 🤖
-there are two commands you can use with the gh copilot cli extension:
+there are three commands you can use with the _gh_ copilot cli extension:
 
 ```bash
 gh copilot explain
 gh copilot suggest
+gh copilot config
 ```
+
+<!--
+Now remember, I have aliases configured so if you see me running copilot, gcs or gce, know that Im using aliases that I created to use less keystrokes.
+
+Ok let's take a closer look at the explain command
+-->
 
 ---
 layout: intro
@@ -111,20 +180,27 @@ image: 'https://source.unsplash.com/collection/94734566/1920x1080'
 this command is used to explain any shell, git or gh cli command:
 
 ```bash
-gh copilot explain [what you want to know more about]
+gh copilot explain 'your query command in a string'
+
+Example: gh copilot explain 'git lfs migrate import --everything --include="*.gz,*.png,*.jar"'
 ```
 
-you can also run:
+Yoiu can also follow the on screen prompts if you run this command:
 
 ```bash
 gh copilot explain
 ```
 
-and follow the on screen prompts
+<br />
+💡 the command you want to be explained must be in a string
+
+<!--
+Let's ask copilot to explain cd ~
+
+-->
 
 ---
 layout: intro
-image: 'https://source.unsplash.com/collection/94734566/1920x1080'
 ---
 
 # Suggest Command 🤖
@@ -132,7 +208,9 @@ image: 'https://source.unsplash.com/collection/94734566/1920x1080'
 this command is used to get suggestions for any shell, git or gh cli inquiry:
 
 ```bash
-gh copilot suggest [what you want to do]
+gh copilot suggest 'what you want to do' -t <git|gh|shell>
+
+Example: gh copilot suggest 'install and configure git lfs'
 ```
 
 you can also run:
@@ -144,20 +222,59 @@ and follow the on screen prompts
 
 ---
 layout: intro
-class: "text-center"
 ---
 
-# 💡 Tip: Create an alias
+# Config Command 🤖
 
-create your own alias for **gh copilot suggest/explain**
-
-I'm using zsh so I ran:
+this command gives you the option to opt in or out of usage analytics
 
 ```bash
-echo 'alias ghs="gh copilot suggest"' >> ~/.zshrc 
-&& echo 'alias ghe="gh copilot explain"' >> ~/.zshrc 
-&& source ~/.zshrc
+gh copilot config
 ```
+
+---
+layout: intro
+---
+
+# Why do we need usage stats? 🧐
+
+Copilot in the CLI sends a payload to our analytics system.
+
+```bash
+{
+	"platform": "darwin",
+	"architecture": "arm64",
+	"version": "0.3.0-beta",
+	"custom_event": "true",
+	"event_parent_command": "explain",
+	"event_name": "Explain",
+	"sha": "089a53215fc4383179869f7f6132ce9d6e58754a",
+	"thread_id": "e61d0d08-f6ba-465b-81cf-c30fd9127d70"
+}
+```
+
+**You can opt out by using the `gh copilot config` command**
+
+<!--
+Now what do we do with this data?
+Well, it helps us to identify whether you're actually finding copilot in the cli useful. 
+
+For example, when we release a new version and see a spike in exceptions and response ratings, we want to understand if there is a regression or a platform nuance causing problems.
+
+Privacy is our priority so we're not looking at the data of speficic users, but rather an aggregate of the data trends to inform our decisions.
+
+-->
+
+---
+layout: image-left
+image: https://media.giphy.com/media/5q3NyUvgt1w9unrLJ9/giphy.gif
+---
+
+## ok that was a lot of talking...
+
+let's get into some demos 💃🏼
+
+<img src="https://media.giphy.com/media/5q3NyUvgt1w9unrLJ9/giphy.gif" alt-="neicy nash saying time is ticking" />
 
 ---
 layout: full
@@ -171,7 +288,7 @@ class: "text-center"
 **Solution:** Ask Copilot CLI
 
 ```bash
-gh copilot suggest create a new react project named techy-trends
+gh copilot suggest 'create a new react project named techy-trends'
 ```
 <!-- live terminal example here -->
 
@@ -187,7 +304,7 @@ class: "text-center"
 We can create a GitHub repo with the cli 
 
 ```bash
-gh copilot suggest push a local folder to a github repo
+gh copilot suggest 'push a local folder to a github repo'
 ```
 
 ---
@@ -195,7 +312,7 @@ layout: full
 class: "text-center"
 ---
 
-# Explain a command ⚠️
+# Explain a command 🧐
 We can ask copilot cli to explain commands we copied from the internet
 
 ```bash
@@ -204,12 +321,11 @@ gh copilot explain 'git lfs migrate import --everything --include="*.gz,*.png,*.
 <!-- live terminal example here -->
 
 <!-- show after the terminal demo -->
-NEVER RUN THIS ONE YOUR MACHINE
 
 ---
 
 # Explain a dangerous command ⚠️
-We can ask copilot cli to explain commands we copied fron the internet
+We can ask copilot cli to explain commands that appears simple enough, but are actually dangerous
 
 ```bash
 gh copilot explain chmod -r 777 /
@@ -226,8 +342,17 @@ class: "text-center"
 
 # Remove a file from a commit msg and <br/> keep the original commit msg 🧐
 ever commit a file you didn't mean to add?
-<!-- 
-TODO: 
+
+```bash
+gh copilot suggest 'remove <filename> from last commit keeping commit message'
+
+```
+<!-- live terminal example here -->
+
+<!-- show after the terminal demo -->
+text if any to show
+
+<!--  
 create a new folder and initialize git: `mkdir demo && cd demo && git init`
 create two new files: `touch demo.md && touch mistake.md`
 commit both files: `git add . && git commit -m "initial commit"`
@@ -244,16 +369,6 @@ run commands
 show changes in vscode or just run git log and git status
 
 -->
-
-```bash
-gh copilot suggest remove <filename> from last commit keeping commit message`
-
-```
-<!-- live terminal example here -->
-
-<!-- show after the terminal demo -->
-text if any to show
-
 ---
 layout: full
 class: "text-center"
@@ -263,7 +378,7 @@ class: "text-center"
 subtitle
 
 ```bash
-github copilot suggest retract an already pushed commit
+github copilot suggest 'retract an already pushed commit'
 ```
 <!-- live terminal example here -->
 
@@ -275,11 +390,29 @@ So I can find the commit hash by running `git log` copy the hash and run
 
 git revert <commit hash>
  -->
+
+Let's take a step back and think about what it's doing
+If you've used github coplt, it 8ises the context of the repo to make suggestions
+
+In the cli you're in a diff env you want to know shell commands, gh commands, git commands so behind the scenes we're telling the LLM to use those as its context and not your code. 
+
+Now that we know this, let's look at a few moe examples and get an idea of what is happening behind the scenes
+
+---
+layout: fact
+---
+# How does Copilot in the CLI work? 🤔
+<img src="https://media.giphy.com/media/qRVDIxBnu57gP0Jkg6/giphy-downsized-large.gif" alt="a man looking under the hhood of a car" />
+
+<!--
+Ask Andrew what's happening under the hood
+-->
+
 ---
 layout: section
 ---
 
-# Top 10 Questions about using the terminal
+# Top Questions about using the terminal
 10 most asked questions about using the terminal answered by _gh_ copilot cli
 
 ---
@@ -288,22 +421,6 @@ class: "text-center"
 ---
 
 #  ❓delete a git branch locally and remotely ❓
-
-```bash
-
-```
-<!-- live terminal example here -->
-
-<!-- show after the terminal demo -->
-text if any to show
-
----
-layout: full
-class: "text-center"
----
-
-# ❓kill processes with open files that have been deleted ❓
-subtitle
 
 ```bash
 
