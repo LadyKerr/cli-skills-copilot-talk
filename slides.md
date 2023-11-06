@@ -392,7 +392,7 @@ git revert <commit hash>
  -->
 
 Let's take a step back and think about what it's doing
-If you've used github coplt, it 8ises the context of the repo to make suggestions
+If you've used github copilot, it 8ises the context of the repo to make suggestions
 
 In the cli you're in a diff env you want to know shell commands, gh commands, git commands so behind the scenes we're telling the LLM to use those as its context and not your code. 
 
@@ -404,6 +404,8 @@ layout: fact
 # How does Copilot in the CLI work? 🤔
 <img src="https://media.giphy.com/media/qRVDIxBnu57gP0Jkg6/giphy-downsized-large.gif" alt="a man looking under the hhood of a car" />
 
+TEST SLIDE - UPDATE with info from Andy
+
 <!--
 Ask Andrew what's happening under the hood
 -->
@@ -413,7 +415,7 @@ layout: section
 ---
 
 # Top Questions about using the terminal
-10 most asked questions about using the terminal answered by _gh_ copilot cli
+Most asked questions about using the terminal answered by _gh_ copilot cli
 
 ---
 layout: full
@@ -422,14 +424,25 @@ class: "text-center"
 
 #  ❓delete a git branch locally and remotely ❓
 
-```bash
 
+```bash
+gh copilot suggest 'delete a git branch locally and remotely'
 ```
 <!-- live terminal example here -->
 
 <!-- show after the terminal demo -->
-text if any to show
+Repo: https://gh.io/mealmetrics-copilot
 
+<!-- 
+- dir: documents/demo 
+- cd into mealmetrics-copilot
+- run git branch to see list of branches locally
+- run git branch -r to see list of branches remotely
+- run gh copilot suggest 'delete a git branch locally and remotely'
+- ask it to explain the command because what does remote_name mean?
+- run the suggested command and delete branch copilot
+- run git branch -r to see list of branches remotely & git branch to see list of branches locally
+--> 
 ---
 layout: full
 class: "text-center"
@@ -453,6 +466,8 @@ class: "text-center"
 
 # ❓ check if a directory exists in shell script ❓
 subtitle
+
+ 
 
 ```bash
 
