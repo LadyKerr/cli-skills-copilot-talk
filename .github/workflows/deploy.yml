@@ -1,27 +1,37 @@
-name: Deploy Copilot in CLI to GitHub Pages
-
-on: push
-
+name: Build and Deploy
+on: [push]
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
+    if: ${{ contains(github.event.head_commit.message, 'Upload') }}
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
 
-      - uses: actions/upload-pages-artifact@v1
+      - name: Set env
+        run: |
+          echo "slide=$(echo '${{ github.event.head_commit.message }}' | cut -d' ' -f 2)" >> $GITHUB_ENV
+
+      - name: Install and Build 🔧
+        run: |
+          echo ${{ env.slide }}
+          npm install
+          npm run build -- ${{ env.slide }}.md --base /Talks/${{ env.slide }}/
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
-          path: dist
+          branch: gh-pages # The branch the action should deploy to.
+          folder: dist # The folder the action should deploy.
+          target-folder: ${{ env.slide }}
+          clean: false
 
-      - name: Deploy
-        id: deployment
-        uses: actions/deploy-pages@v2
+      - name: Checkout for README 🛎️
+        uses: actions/checkout@v2.3.1
+      - name: Update README
+        run: |
+          echo "| [${{ env.slide }}](${{ env.slide }}.md) | <https://ahandsel.github.io/Talks/${{ env.slide }}/> |" >> README.md
+      - name: Commit README changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "readme: add ${{ env.slide }} link"
+          file_pattern: README.md
