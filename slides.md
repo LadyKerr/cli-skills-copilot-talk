@@ -257,7 +257,7 @@ Show: asking it a query and then selecting the type
 - click to explain the suggestion
 
 Show: telling it the type while you ask the query
-- gh gcs create a new codespace -t gh
+- gcs create a new codespace -t gh
 
 My favorite way to do it is to give it the query and tell it the type of 
 command at the same time with the -t flag
@@ -281,7 +281,8 @@ layout: intro
 
 # Why do we need usage stats? 🧐
 
-Copilot in the CLI sends a payload to our analytics system.
+Copilot in the CLI sends a payload to our analytics system. <br />
+> You can opt out by using the `gh copilot config` command
 
 ```bash
 {
@@ -296,7 +297,7 @@ Copilot in the CLI sends a payload to our analytics system.
 }
 ```
 
-**You can opt out by using the `gh copilot config` command**
+💡 **Read more in our docs: gh.io/gh-copilot-docs** 
 
 <!--
 Now what do we do with this data?
@@ -407,7 +408,7 @@ Copy command:
 - gce 'chmod -r 777 /'
 
 oh wow, that seems pretty dangerous. I'm glad I asked copilot to explain it to me before I ran it.
-Imagine if you run a terminal command you have no idea about and it gives everyone read, write and cute permissions on your  machine. yikes, that would be bad.
+Imagine if you run a terminal command you have no idea about and it gives everyone read, write and execute permissions on your  machine. yikes, that would be bad.
  -->
 ---
 layout: full
@@ -419,7 +420,7 @@ transition: slide-left
 ever commit a file you didn't mean to add?
 
 ```bash
-gh copilot suggest 'remove <filename> from last commit keeping commit message'
+gh copilot suggest 'remove mistake.md from last commit keeping original commit message'
 
 ```
 <!-- live terminal example here -->
@@ -479,7 +480,7 @@ Ok so it tells me to use the youtube-dl cli program. Let's install it with homeb
 
 - create a new terminal window and run the command below:
 - brew install youtube-dl
-While that's going, I wonder if copilot can get me a link to the repo for this program. Let's ask: gce 'get link to youtube-dl repo'
+While that's going, I wonder if copilot can get me a link to the repo for this program. Let's ask: gcs 'get link to youtube-dl repo'
 
 link to repo: https://github.com/ytdl-org/youtube-dl
 
@@ -514,10 +515,10 @@ class: "text-left"
 ### Thread: conversation between you and copilot
 ### Turn: a single user mesage in a thread
 
-❶ **User Input Prompt** (natural language prompts or questions) <br/>
-❷ **LLM Analysis** (trained neural network finds response) <br/>
-❸ **Response Generation** (gives a suggestion that you can copy) <br/>
-❹ **Output Formatting** (syntax highlighting, indentations, etc) <br/>
+❶ **User Input Prompt**  <br/>
+❷ **LLM Analysis**  <br/>
+❸ **Response Generation**  <br/>
+❹ **Output Formatting**  <br/>
 
 
 <!--
@@ -545,9 +546,9 @@ gh copilot suggest 'delete a git branch locally and remotely'
 <!-- live terminal example here -->
 
 <!-- show after the terminal demo -->
-Repo: https://gh.io/mealmetrics-copilot
 
 <!-- 
+Repo: https://gh.io/mealmetrics-copilot
 - dir: documents/demo 
 - cd into mealmetrics-copilot
 - run git branch to see list of branches locally
@@ -603,10 +604,10 @@ gh copilot suggest 'rename a local git branch'
 <!-- live terminal example here -->
 
 <!-- 
-cd into m
+cd into mealmetrics-copilot
 
 git checkout -b rename
-git ranch -m <new-name>
+git branch -m <new-name>
  -->
 
 ---
@@ -641,6 +642,9 @@ gh copilot suggest 'how to exit vim'
 
 <!-- 
 This would not be a copilot cli terminal demo if I didnt ask this one question
+explain the command and remind it doesnt save your changes!
+
+Do :wq! to save your changes and exit vim
 -->
 
 ---
