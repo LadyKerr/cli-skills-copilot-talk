@@ -4,10 +4,16 @@ title: GitHub Copilot for CLI
 favicon: ""
 layout: cover
 lineNumbers: true
+transition: fade
+record: 'dev'
+download: true
+exportFilename: 'gh-copilot-cli'
+export:
+  format: pdf
+  timeout: 30000
+  dark: false
+  withClicks: false
 ---
-
-# Take your command line skills to the next level with
-# GitHub Copilot in the CLI 🚀
 
 ---
 layout: about-me
@@ -39,7 +45,7 @@ layout: intro
 
 GitHub Copilot in the CLI provides a chat-like interface in the terminal that allows you to ask questions about the command line.
 
-<img src="https://github.com/LadyKerr/cli-skills-copilot-talk/assets/47188731/dd3bcaef-a030-41c0-8d0b-91abba131d4e" alt="github copilot in the cli" width="600" />
+<img src="https://github.com/LadyKerr/mealmetrics-copilot/assets/47188731/d7630836-239f-441d-848c-a93c6dd35c52" alt="github copilot in the cli" width="600" />
 
 <!--
 You can ask GitHub Copilot to provide either command suggestions or explanations of given commands.
@@ -64,7 +70,7 @@ GitHub Copilot in the CLi is designed to answer questions about:
 
 <br />
 
-<img src="https://github.com/LadyKerr/cli-skills-copilot-talk/assets/47188731/01902efd-ba46-40f3-be83-f8009c09a34a" alt="github copilot in the cli" width="600" />
+<img src="https://github.com/LadyKerr/mealmetrics-copilot/assets/47188731/c25d4257-3c75-4804-beb6-bf99f3795848" alt="github copilot in the cli" width="600" />
 
 ---
 layout: intro
@@ -305,6 +311,7 @@ Privacy is our priority so we're not looking at the data of speficic users, but 
 ---
 layout: image-left
 image: https://media.giphy.com/media/5q3NyUvgt1w9unrLJ9/giphy.gif
+transition: slide-left
 ---
 
 ## ok that was a lot of talking...
@@ -316,6 +323,7 @@ let's get into some demos 💃🏼
 ---
 layout: full
 class: "text-center"
+transition: slide-left
 ---
 
 # Prompting Copilot to get the right output 🤖
@@ -346,6 +354,7 @@ Let's take a look at another example.
 ---
 layout: full
 class: "text-center"
+transition: slide-left
 ---
 
 # Push a local folder to a new GitHub repo 🗂️
@@ -377,6 +386,7 @@ Alright, let's keep going. Im going to ask copilot to explain a command for me t
 ---
 layout: full
 class: "text-center"
+transition: slide-left
 ---
 
 # Explain a dangerous command ⚠️
@@ -402,6 +412,7 @@ Imagine if you run a terminal command you have no idea about and it gives everyo
 ---
 layout: full
 class: "text-center"
+transition: slide-left
 ---
 
 # Remove a file from a commit msg and <br/> keep the original commit msg 🧐
@@ -451,6 +462,7 @@ If it doesnt work, run it again until you get the correct response. Otherwise, c
 ---
 layout: full
 class: "text-center"
+transition: slide-left
 ---
 
 # Download a Youtube Video 🤔
@@ -478,7 +490,8 @@ Return to terminal where homebrew ran and run the command below:
 -->
 
 ---
-layout: fact
+layout: image-left
+image: https://media.giphy.com/media/qRVDIxBnu57gP0Jkg6/giphy-downsized-large.gif
 ---
 # How does Copilot in the CLI work? 🤔
 <img src="https://media.giphy.com/media/qRVDIxBnu57gP0Jkg6/giphy-downsized-large.gif" alt="a man looking under the hhood of a car" />
@@ -514,14 +527,13 @@ turn is where the extension / integration makes a request and gets a response fr
 
 ---
 layout: section
+transition: slide-left
 ---
-
-# Top Questions about using the terminal
-Most asked questions about using the terminal answered by _gh_ copilot cli
 
 ---
 layout: full
 class: "text-center"
+transition: slide-left
 ---
 
 #  ❓delete a git branch locally and remotely ❓
@@ -549,6 +561,7 @@ Repo: https://gh.io/mealmetrics-copilot
 ---
 layout: full
 class: "text-center"
+transition: slide-left
 ---
 
 # ❓ check if a directory exists in shell script ❓
@@ -579,6 +592,7 @@ Check if a directory exists:
 ---
 layout: full
 class: "text-center"
+transition: slide-left
 ---
 
 # ❓ rename a local git branch ❓
@@ -599,6 +613,7 @@ git ranch -m <new-name>
 ---
 layout: full
 class: "text-center"
+transition: slide-left
 ---
 
 # ❓ see hidden files in current directory ❓
@@ -614,6 +629,7 @@ gh copilot suggest 'see hidden files in current directory'
 ---
 layout: full
 class: "text-center"
+transition: slide-left
 ---
 
 # ❓ exit vim ❓
@@ -631,6 +647,7 @@ This would not be a copilot cli terminal demo if I didnt ask this one question
 ---
 layout: full
 class: "text-center"
+transition: slide-left
 ---
 
 # ❓ give me a suggestion ❓
@@ -642,26 +659,19 @@ gh copilot suggest/explain ??
 <!-- live terminal example here -->
 
 ---
-layout: intro
-class: "text-center"
+layout: end
+class: "image-center"
+transition: slide-left
 ---
-
 # ✨ Try it for yourself! ✨
 
-Copilot for CLI is in public beta 💃🏼
+Copilot in the CLI is in public beta 💃🏼
 
-**Repo**: https://gh.io/gh-copilot <br/>
-**Docs**: https://gh.io/gh-copilot-docs <br/>
-**Feedback**: https://gh.io/gh-copilot-feedback <br/>
+ <img src="https://github.com/LadyKerr/mealmetrics-copilot/assets/47188731/c07ba0ad-5e12-498d-a6b3-0728491a49cd" alt="github copilot in the cli" width="600" />
 
-```bash
-gh extension install github/gh-copilot
-```
 
 ---
 layout: outro
 ---
-
-# Thanks! ✨
 
 Find me online [@itsthatladydev](https://itsthatlady.dev/mylinks/) 💃🏼
