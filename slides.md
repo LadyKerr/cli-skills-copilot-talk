@@ -139,8 +139,6 @@ Your AI command line copilot.
 Usage:
   copilot [command]
 
-Available Commands:
-  config      Configure options
   explain     Explain a command
   suggest     Suggest a command
 
@@ -162,12 +160,11 @@ layout: intro
 ---
 
 # Copilot CLI Commands 🤖
-there are three commands you can use with the _gh_ copilot cli extension:
+there are two commands you can use with the _gh_ copilot cli extension:
 
 ```bash
 gh copilot explain
 gh copilot suggest
-gh copilot config
 ```
 
 <!--
@@ -228,14 +225,13 @@ this command is used to get suggestions for any shell, git or gh cli inquiry:
 ```bash
 gh copilot suggest 'what you want to do' -t <git|gh|shell>
 
-Example: gh copilot suggest 'install and configure git lfs' -t shell
+Example: gh copilot suggest 'create a new codespace' -t gh
 ```
 
 you can also run:
 ```bash
 gh copilot suggest
 ```
-
 and follow the on screen prompts
 
 <!--
@@ -264,52 +260,6 @@ command at the same time with the -t flag
 -->
 
 ---
-layout: intro
----
-
-# Config Command 🤖
-
-this command gives you the option to opt in or out of usage analytics
-
-```bash
-gh copilot config
-```
-
----
-layout: intro
----
-
-# Why do we need usage stats? 🧐
-
-Copilot in the CLI sends a payload to our analytics system. <br />
-> You can opt out by using the `gh copilot config` command
-
-```bash
-{
-	"platform": "darwin",
-	"architecture": "arm64",
-	"version": "0.3.0-beta",
-	"custom_event": "true",
-	"event_parent_command": "explain",
-	"event_name": "Explain",
-	"sha": "089a53215fc4383179869f7f6132ce9d6e58754a",
-	"thread_id": "e61d0d08-f6ba-465b-81cf-c30fd9127d70"
-}
-```
-
-💡 **Read more in our docs: gh.io/gh-copilot-docs** 
-
-<!--
-Now what do we do with this data?
-Well, it helps us to identify whether you're actually finding copilot in the cli useful. 
-
-For example, when we release a new version and see a spike in exceptions and response ratings, we want to understand if there is a regression or a platform nuance causing problems.
-
-Privacy is our priority so we're not looking at the data of speficic users, but rather an aggregate of the data trends to inform our decisions.
-
--->
-
----
 layout: image-left
 image: https://media.giphy.com/media/5q3NyUvgt1w9unrLJ9/giphy.gif
 transition: slide-left
@@ -320,37 +270,6 @@ transition: slide-left
 let's get into some demos 💃🏼
 
 <img src="https://media.giphy.com/media/5q3NyUvgt1w9unrLJ9/giphy.gif" alt-="neicy nash saying time is ticking" />
-
----
-layout: full
-class: "text-center"
-transition: slide-left
----
-
-# Prompting Copilot to get the right output 🤖
-
-**Goal:** create a new react project <br/>
-**Problem:** I don't remember how to do this <br/>
-**Solution:** Ask Copilot CLI
-
-```bash
-gh copilot suggest 'create a new react project named techy-trends'
-```
-<!-- live terminal example here -->
-
-<!-- show this AFTER the terminal demo - figure out on slidev -->
-💡 communicating effectively with copilot cli is essential to your success
-
-<!-- 
-- gcs create a new react project named techy-trends
-- revise: create react app is outdated
-- that doesnt seem right, You know what actually what I really want is a new nextjs project where I'll the use react to build the UI
-- revise: create a new nextjs project named techy-trends
-
-When it comes to using copilot in the cli, much like copilot in general, make sure yo're asking for exactly what you need. The more specific you are the better your outcome will be. 
-
-Let's take a look at another example.
--->
 
 ---
 layout: full
@@ -399,7 +318,7 @@ gh copilot explain chmod -r 777 /
 <!-- live terminal example here -->
 
 <!-- show after the terminal demo -->
-NEVER RUN THIS ONE YOUR MACHINE
+🚨 NEVER RUN THIS COMMAND ON YOUR MACHINE 🚨
 
 
 <!-- 
@@ -587,27 +506,6 @@ Check if a directory exists:
   echo "Directory exists";
   fi
 
- -->
-
----
-layout: full
-class: "text-center"
-transition: slide-left
----
-
-# ❓ rename a local git branch ❓
-
-```bash
-gh copilot suggest 'rename a local git branch'
-```
-
-<!-- live terminal example here -->
-
-<!-- 
-cd into mealmetrics-copilot
-
-git checkout -b rename
-git branch -m <new-name>
  -->
 
 ---
