@@ -63,7 +63,7 @@ layout: intro
 
 # What does it do?
 
-GitHub Copilot in the CLi is designed to answer questions about:
+GitHub Copilot in the CLI is designed to answer questions about:
 - general shell commands
 - git commands
 - _gh_ cli commands
@@ -565,7 +565,6 @@ transition: slide-left
 ---
 
 # ❓ check if a directory exists in shell script ❓
-subtitle
 
  
 
@@ -647,7 +646,7 @@ This would not be a copilot cli terminal demo if I didnt ask this one question
 ---
 layout: full
 class: "text-center"
-transition: slide-left
+transition: fade
 ---
 
 # ❓ give me a suggestion ❓
@@ -661,14 +660,11 @@ gh copilot suggest/explain ??
 ---
 layout: end
 class: "image-center"
-transition: slide-left
+transition: fade
 ---
 # ✨ Try it for yourself! ✨
 
-Copilot in the CLI is in public beta 💃🏼
-
- <img src="https://github.com/LadyKerr/mealmetrics-copilot/assets/47188731/c07ba0ad-5e12-498d-a6b3-0728491a49cd" alt="github copilot in the cli" width="600" />
-
+ <img src="https://github.com/LadyKerr/mealmetrics-copilot/assets/47188731/3b56b485-6186-44f6-9ab7-34d34178cf3d" alt="github copilot in the cli qr code" />
 
 ---
 layout: outro
