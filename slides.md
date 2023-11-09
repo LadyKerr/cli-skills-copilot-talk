@@ -70,7 +70,7 @@ GitHub Copilot in the CLi is designed to answer questions about:
 layout: intro
 ---
 
-# Getting Started: Installation 🛠️
+# Installation 🛠️
 💡 `You must have an active copilot subscription`
 
 ❶ install GitHub CLI with your package manager <br/>
@@ -99,14 +99,14 @@ layout: intro
 
 # 💡 Tip: Create an alias
 
-create your own alias for **gh copilot suggest** && **gh copilot explain**
+create your own alias for gh copilot commands
 
 I'm using zsh so I ran:
 
 ```bash
 alias copilot='gh copilot' ; echo 'alias copilot="gh copilot"' >> ~/.zshrc && source ~/.zshrc
-alias gcs='gh copilot suggest' ; echo 'alias gcs="gh copilot suggest"' >> ~/.zshrc && source ~/.zshrc
-alias gce='gh copilot explain' ; echo "alias gce='gh copilot explain'" >> ~/.zshrc && source ~/.zshrc
+alias gcs='gh copilot suggest' ^
+alias gce='gh copilot explain' ^
 ```
 <!-- 
 Create an alias! This will make interfacing with the cli a lot smoother because it saves you some keystrokes and you can get help faster.
@@ -185,7 +185,7 @@ gh copilot explain 'your query command in a string'
 Example: gh copilot explain 'git lfs migrate import --everything --include="*.gz,*.png,*.jar"'
 ```
 
-Yoiu can also follow the on screen prompts if you run this command:
+You can also follow the on screen prompts if you run this command:
 
 ```bash
 gh copilot explain
@@ -195,8 +195,20 @@ gh copilot explain
 💡 the command you want to be explained must be in a string
 
 <!--
-Let's ask copilot to explain cd ~
+There are 2 ways you can interact with copilot in the cli to explain a command:
 
+Show: runing the command and following the on screen prompts
+- gce
+- enter flow
+- follow on screen prompts to explain a command
+- copy command above in the example bash and explain that 
+
+Show: asking it the question at the same tume you run the command
+- gce 'cd ~'
+
+Point out the importance of placing the query in a string, otherwise copilot may not understand what you want, since it's expecting a string.
+
+My favorite way to do it is to run the command and ask it the query at the same time
 -->
 
 ---
@@ -210,7 +222,7 @@ this command is used to get suggestions for any shell, git or gh cli inquiry:
 ```bash
 gh copilot suggest 'what you want to do' -t <git|gh|shell>
 
-Example: gh copilot suggest 'install and configure git lfs'
+Example: gh copilot suggest 'install and configure git lfs' -t shell
 ```
 
 you can also run:
@@ -219,6 +231,31 @@ gh copilot suggest
 ```
 
 and follow the on screen prompts
+
+<!--
+There are 3 ways you can interact with copilot in the cli to get a suggestion:
+
+Show: runing the command and following the on screen prompts
+- gcs
+- enter flow
+- follow on screen prompts to suggest a command
+- type: create a new codespace
+- revise: create the codespace on the  main branch
+- suggestion: gcs how to view codespaces in this repo
+- run: gh codespace list
+- copy command above in the example
+
+Show: asking it a query and then selecting the type
+- type  gcs create a new codespace
+- copilot will respond with the suggestion
+- click to explain the suggestion
+
+Show: telling it the type while you ask the query
+- gh gcs create a new codespace -t gh
+
+My favorite way to do it is to give it the query and tell it the type of 
+command at the same time with the -t flag
+-->
 
 ---
 layout: intro
@@ -293,7 +330,18 @@ gh copilot suggest 'create a new react project named techy-trends'
 <!-- live terminal example here -->
 
 <!-- show this AFTER the terminal demo - figure out on slidev -->
-communicating effectively with copilot cli is essential to your success
+💡 communicating effectively with copilot cli is essential to your success
+
+<!-- 
+- gcs create a new react project named techy-trends
+- revise: create react app is outdated
+- that doesnt seem right, You know what actually what I really want is a new nextjs project where I'll the use react to build the UI
+- revise: create a new nextjs project named techy-trends
+
+When it comes to using copilot in the cli, much like copilot in general, make sure yo're asking for exactly what you need. The more specific you are the better your outcome will be. 
+
+Let's take a look at another example.
+-->
 
 ---
 layout: full
@@ -307,21 +355,28 @@ We can create a GitHub repo with the cli
 gh copilot suggest 'push a local folder to a github repo'
 ```
 
+<!-- 
+I just created a folder, so let's push it to GitHub. How many of you forget how to do this?
+Like, when you create the folder locally before creating the repo on GitHub and then you have to go back and forth between the browser and the terminal to figure out what to do next.
+
+Ok, so with copilot in the cli i dont have to do that. 
+
+So I know I can create a repo with gh cli: 
+- gh repo create techy-trends --private
+But how do I push this folder to the repo? Let's ask:
+- gcs push a local folder to a github repo -t shell
+- follow gh copilot suggestions
+- run gh browse to open repo in browser
+
+Sweet, that was a lot faster for me than going down the browser search rabbit hole
+
+Alright, let's keep going. Im going to ask copilot to explain a command for me that I found online
+ -->
+
+
 ---
 layout: full
 class: "text-center"
----
-
-# Explain a command 🧐
-We can ask copilot cli to explain commands we copied from the internet
-
-```bash
-gh copilot explain 'git lfs migrate import --everything --include="*.gz,*.png,*.jar"'
-```
-<!-- live terminal example here -->
-
-<!-- show after the terminal demo -->
-
 ---
 
 # Explain a dangerous command ⚠️
@@ -335,6 +390,15 @@ gh copilot explain chmod -r 777 /
 <!-- show after the terminal demo -->
 NEVER RUN THIS ONE YOUR MACHINE
 
+
+<!-- 
+So, I saw this command and was curious about what it did so I can ask
+Copy command:
+- gce 'chmod -r 777 /'
+
+oh wow, that seems pretty dangerous. I'm glad I asked copilot to explain it to me before I ran it.
+Imagine if you run a terminal command you have no idea about and it gives everyone read, write and cute permissions on your  machine. yikes, that would be bad.
+ -->
 ---
 layout: full
 class: "text-center"
@@ -350,11 +414,11 @@ gh copilot suggest 'remove <filename> from last commit keeping commit message'
 <!-- live terminal example here -->
 
 <!-- show after the terminal demo -->
-text if any to show
 
 <!--  
 create a new folder and initialize git: `mkdir demo && cd demo && git init`
 create two new files: `touch demo.md && touch mistake.md`
+
 commit both files: `git add . && git commit -m "initial commit"`
 
 add content to both files:
@@ -364,39 +428,54 @@ echo "I'm at gh universe '23!" > mistake.md
 commit both files: `git add . && git commit -m "add content to both files"`
 
 Now ask copilot to suggest how remove the file and keep the commit
+
+ANSWER:
+```bash
+git reset --soft HEAD~1
+git rm mistake.md
+git commit -c ORIG_HEAD
+```
+
 Ask to explain commands
 run commands
 show changes in vscode or just run git log and git status
 
+Works? Great! Say this:
+And there we go! Whenever I run this demo it always feels so magical! I love that copilot knew to soft reset, remove the file, and then commit the changes with the original commit message.
+
+Doesnt work? Run again and if still, Say this, and copy the command yourself:
+If it doesnt work, run it again until you get the correct response. Otherwise, copy the command yourself and explain that LLMs sometimes get it wrong as well. 
+
 -->
+
 ---
 layout: full
 class: "text-center"
 ---
 
-# Retract a commit that's already been pushed
-subtitle
+# Download a Youtube Video 🤔
+Did you know that you can download youtube videos with the cli?
 
 ```bash
-github copilot suggest 'retract an already pushed commit'
+github copilot suggest 'download youtube video'
+
 ```
 <!-- live terminal example here -->
 
-<!-- show after the terminal demo -->
-text if any to show
-
 <!-- 
-So I can find the commit hash by running `git log` copy the hash and run
+Ok so it tells me to use the youtube-dl cli program. Let's install it with homebrew and then try to download a video
 
-git revert <commit hash>
- -->
+- create a new terminal window and run the command below:
+- brew install youtube-dl
+While that's going, I wonder if copilot can get me a link to the repo for this program. Let's ask: gce 'get link to youtube-dl repo'
 
-Let's take a step back and think about what it's doing
-If you've used github copilot, it 8ises the context of the repo to make suggestions
+link to repo: https://github.com/ytdl-org/youtube-dl
 
-In the cli you're in a diff env you want to know shell commands, gh commands, git commands so behind the scenes we're telling the LLM to use those as its context and not your code. 
+Go to youtube and get a video link to download: https://www.youtube.com/watch?v=D-gkwzExddk&t=2s&ab_channel=GitHub 
 
-Now that we know this, let's look at a few moe examples and get an idea of what is happening behind the scenes
+Return to terminal where homebrew ran and run the command below:
+- youtube-dl https://www.youtube.com/watch?v=D-gkwzExddk&t=2s&ab_channel=GitHub
+-->
 
 ---
 layout: fact
@@ -404,10 +483,33 @@ layout: fact
 # How does Copilot in the CLI work? 🤔
 <img src="https://media.giphy.com/media/qRVDIxBnu57gP0Jkg6/giphy-downsized-large.gif" alt="a man looking under the hhood of a car" />
 
-TEST SLIDE - UPDATE with info from Andy
+<!--
+Let's take a step back and think about what it's doing
+If you've used github copilot, it uses the context of the repo to make suggestions for your code
+
+In the cli you're in a diff env with copilot that's specific to shell commands, gh commands, git commands so behind the scenes we're telling the LLM to use those as its context and not your code. 
+
+Now that we know this, let's look at a few more examples and get an idea of what is happening behind the scenes
+-->
+
+---
+layout: full
+class: "text-left"
+---
+# Behind Copilot in the CLI 👀
+
+### Thread: conversation between you and copilot
+### Turn: a single user mesage in a thread
+
+❶ **User Input Prompt** (natural language prompts or questions) <br/>
+❷ **LLM Analysis** (trained neural network finds response) <br/>
+❸ **Response Generation** (gives a suggestion that you can copy) <br/>
+❹ **Output Formatting** (syntax highlighting, indentations, etc) <br/>
+
 
 <!--
-Ask Andrew what's happening under the hood
+thread is no different than a Slack thread: it is conversation that spans multiple messages going back and forth
+turn is where the extension / integration makes a request and gets a response from the Copilot API for a new suggestion given the most recent revision and the past context
 -->
 
 ---
@@ -443,21 +545,6 @@ Repo: https://gh.io/mealmetrics-copilot
 - run the suggested command and delete branch copilot
 - run git branch -r to see list of branches remotely & git branch to see list of branches locally
 --> 
----
-layout: full
-class: "text-center"
----
-
-# ❓ modify existing, unpushed commit messages ❓
-subtitle
-
-```bash
-
-```
-<!-- live terminal example here -->
-
-<!-- show after the terminal demo -->
-text if any to show
 
 ---
 layout: full
@@ -470,12 +557,24 @@ subtitle
  
 
 ```bash
-
+git copilot suggest 'check if dir exist in shell script'
 ```
 <!-- live terminal example here -->
 
-<!-- show after the terminal demo -->
-text if any to show
+<!-- 
+run pwd 
+copy dir link
+pop in the code copilot gives
+run
+
+ANSWER:
+Check if a directory exists:
+
+  if [ -d /path/to/dir ]; then
+  echo "Directory exists";
+  fi
+
+ -->
 
 ---
 layout: full
@@ -483,15 +582,19 @@ class: "text-center"
 ---
 
 # ❓ rename a local git branch ❓
-subtitle
 
 ```bash
-
+gh copilot suggest 'rename a local git branch'
 ```
+
 <!-- live terminal example here -->
 
-<!-- show after the terminal demo -->
-text if any to show
+<!-- 
+cd into m
+
+git checkout -b rename
+git ranch -m <new-name>
+ -->
 
 ---
 layout: full
@@ -499,63 +602,14 @@ class: "text-center"
 ---
 
 # ❓ see hidden files in current directory ❓
-subtitle
 
 ```bash
-
+gh copilot suggest 'see hidden files in current directory'
 ```
+
 <!-- live terminal example here -->
 
 <!-- show after the terminal demo -->
-text if any to show
-
----
-layout: full
-class: "text-center"
----
-
-# ❓ undo the most recent local git commit ❓
-subtitle
-
-```bash
-
-```
-<!-- live terminal example here -->
-
-<!-- show after the terminal demo -->
-text if any to show
-
----
-layout: full
-class: "text-center"
----
-
-# ❓ make git forget about a file that was tracked, but is now in .gitignore ❓
-subtitle
-
-```bash
-
-```
-<!-- live terminal example here -->
-
-<!-- show after the terminal demo -->
-text if any to show
-
----
-layout: full
-class: "text-center"
----
-
-# ❓ check if a directory exists in shell script ❓
-subtitle
-
-```bash
-
-```
-<!-- live terminal example here -->
-
-<!-- show after the terminal demo -->
-text if any to show
 
 ---
 layout: full
@@ -563,15 +617,16 @@ class: "text-center"
 ---
 
 # ❓ exit vim ❓
-subtitle
 
 ```bash
+gh copilot suggest 'how to exit vim'
 
 ```
 <!-- live terminal example here -->
 
-<!-- show after the terminal demo -->
-text if any to show
+<!-- 
+This would not be a copilot cli terminal demo if I didnt ask this one question
+-->
 
 ---
 layout: full
@@ -587,20 +642,21 @@ gh copilot suggest/explain ??
 <!-- live terminal example here -->
 
 ---
-layout: image-right
-image: public reporepo
+layout: intro
+class: "text-center"
 ---
 
 # ✨ Try it for yourself! ✨
 
-Copilot for CLI is in public beta 
+Copilot for CLI is in public beta 💃🏼
+
+**Repo**: https://gh.io/gh-copilot <br/>
+**Docs**: https://gh.io/gh-copilot-docs <br/>
+**Feedback**: https://gh.io/gh-copilot-feedback <br/>
 
 ```bash
 gh extension install github/gh-copilot
 ```
-QR CODE
-
-Add repo image link or discussion board for cli
 
 ---
 layout: outro
@@ -608,8 +664,4 @@ layout: outro
 
 # Thanks! ✨
 
-SCAN FOR SLIDES:
-
-QR CODE to repo with slides
-
-[Add link for thhose who have slide]()
+Find me online [@itsthatladydev](https://itsthatlady.dev/mylinks/) 💃🏼
