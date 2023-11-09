@@ -39,7 +39,7 @@ layout: intro
 
 GitHub Copilot in the CLI provides a chat-like interface in the terminal that allows you to ask questions about the command line.
 
-<img src="https://github.com/LadyKerr/cli-skills-copilot/assets/47188731/ef7a4fca-72bf-41aa-a2b1-4617b31abbe7" alt="github copilot in the cli" width="600" />
+<img src="https://github.com/LadyKerr/cli-skills-copilot-talk/assets/47188731/dd3bcaef-a030-41c0-8d0b-91abba131d4e" alt="github copilot in the cli" width="600" />
 
 <!--
 You can ask GitHub Copilot to provide either command suggestions or explanations of given commands.
@@ -64,7 +64,7 @@ GitHub Copilot in the CLi is designed to answer questions about:
 
 <br />
 
-<img src="https://github.com/LadyKerr/cli-skills-copilot/assets/47188731/e9546211-7370-4e1d-9090-1175ec55379b" alt="github copilot in the cli" width="600" />
+<img src="https://github.com/LadyKerr/cli-skills-copilot-talk/assets/47188731/01902efd-ba46-40f3-be83-f8009c09a34a" alt="github copilot in the cli" width="600" />
 
 ---
 layout: intro
@@ -493,7 +493,7 @@ Now that we know this, let's look at a few more examples and get an idea of what
 -->
 
 ---
-layout: full
+layout: intro
 class: "text-left"
 ---
 # Behind Copilot in the CLI 👀
