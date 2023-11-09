@@ -5,7 +5,7 @@
 To watch the recording, click [here - link incoming]().
 
 ## Resources:
-- **Slides**: [here](/dist/gh-copilot-cli.pdf)
+- **Slides**: [here](/gh-copilot-cli.pdf)
 - **Copilot in the CLI docs**: https://gh.io/gh-copilot-docs
 - **Copilot in the CLI repo**: https://gh.io/gh-copilot
 
